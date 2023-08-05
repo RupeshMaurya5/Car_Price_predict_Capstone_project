@@ -22,7 +22,7 @@ def predict_price(year, km_driven, fuel, seller_type, transmission, owner, manuf
     })
 
     # One-hot encode the categorical features
-    features_encoded = pd.get_dummies(features, columns=['fuel', 'seller_type', 'transmission','manufacturer'])
+    features_encoded = pd.get_dummies(features, columns=['fuel', 'seller_type', 'transmission','Manufacturer', 'Model', 'Variant'])
 
     # Predict the price using the loaded model
     predicted_price = loaded_model.predict(features_encoded)[0]
@@ -46,8 +46,8 @@ def main():
     transmission = st.selectbox("Transmission", df['transmission'].unique())
     owner = st.slider("Number of Previous Owners", min_value=0, max_value=5, value=1)
     manufacturer = st.selectbox("Manufacturer", df['Manufacturer'].unique())
-    model = st.slider("Model Index", min_value=0, max_value=1000, value=500)
-    variant = st.slider("Variant Index", min_value=0, max_value=500, value=250)
+    model = st.selectbox("Model", df['Model'].unique())
+    variant = st.selectbox("Variant", df['Variant'].unique())
 
     # Predict button
     if st.button("Predict Selling Price"):
