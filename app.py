@@ -22,13 +22,10 @@ def predict_price(year, km_driven, fuel, seller_type, transmission, owner, manuf
     })
 
     # One-hot encode the categorical features
-    features_encoded = pd.get_dummies(features, columns=['fuel', 'seller_type', 'transmission'])
+    features_encoded = pd.get_dummies(features, columns=['fuel', 'seller_type', 'transmission','Manufacturer','Model','Variant'])
 
     # Predict the price using the loaded model
     predicted_price = loaded_model.predict(features_encoded)[0]
-    return predicted_price
-
-    predicted_price = loaded_model.predict(features)[0]
     return predicted_price
 
 # Streamlit app
