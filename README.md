@@ -18,7 +18,6 @@ The dataset used for training the model is available in the file CAR DETAILS.csv
 -seller_type: Type of seller (Individual, Dealer)<br>
 -transmission: Transmission type (Manual, Automatic)<br>
 -owner: Number of previous owners<br>
--company: Car manufacturing company<br>
 
 # Pre-requisities
 To run the Streamlit app, you need to have the following installed on your system:
