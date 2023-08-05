@@ -40,7 +40,7 @@ def main():
 
     # Input fields for user to enter car details
     year = st.slider("Select Year", min_value=2000, max_value=2023, value=2010)
-    km_driven = st.slider("Enter Kilometers Driven", min_value=0, value=50000)
+    km_driven = st.slider("Enter Kilometers Driven", min_value=0, max_value=806599 value=50000)
     fuel = st.selectbox("Select Fuel Type", df['fuel'].unique())
     seller_type = st.selectbox("Select Seller Type", df['seller_type'].unique())
     transmission = st.selectbox("Select Transmission", df['transmission'].unique())
