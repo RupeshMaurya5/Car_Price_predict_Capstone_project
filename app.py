@@ -7,6 +7,7 @@ filename = "best_model_random_forest.pkl"
 loaded_model = joblib.load(filename)
 
 # Function to make predictions
+# Function to make predictions
 def predict_price(year, km_driven, fuel, seller_type, transmission, owner, manufacturer, model, variant):
     features = pd.DataFrame({
         'year': [year],
@@ -27,6 +28,9 @@ def predict_price(year, km_driven, fuel, seller_type, transmission, owner, manuf
     predicted_price = loaded_model.predict(features_encoded)[0]
     return predicted_price
 
+    predicted_price = loaded_model.predict(features)[0]
+    return predicted_price
+
 # Streamlit app
 def main():
     st.title("Car Selling Price Prediction")
@@ -41,15 +45,9 @@ def main():
     seller_type = st.selectbox("Select Seller Type", df['seller_type'].unique())
     transmission = st.selectbox("Select Transmission", df['transmission'].unique())
     owner = st.slider("Select Number of Previous Owners", min_value=0, max_value=5, value=1)
-
-    # Get unique categorical values for Manufacturer, Model, and Variant
-    unique_manufacturers = df['Manufacturer'].unique()
-    unique_models = df['Model'].unique()
-    unique_variants = df['Variant'].unique()
-
-    manufacturer = st.selectbox("Select Manufacturer", unique_manufacturers)
-    model = st.selectbox("Select Model", unique_models)
-    variant = st.selectbox("Select Variant", unique_variants)
+    manufacturer = st.selectbox("Select Manufacturer", df['Manufacturer'].unique())
+    model = st.selectbox("Select Model", df['Model'].unique())
+    variant = st.selectbox("Select Variant", df['Variant'].unique())
 
     # Predict button
     if st.button("Predict Selling Price"):
