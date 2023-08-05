@@ -44,7 +44,7 @@ def main():
     fuel = st.selectbox("Fuel Type", df['fuel'].unique())
     seller_type = st.selectbox("Seller Type", df['seller_type'].unique())
     transmission = st.selectbox("Transmission", df['transmission'].unique())
-    owner = st.slider("Number of Previous Owners", min_value=0, max_value=5, value=1)
+    owner = st.selectbox("Owner", df['owner'].unique())
     manufacturer = st.selectbox("Manufacturer", df['Manufacturer'].unique())
     model = st.selectbox("Model", df['Model'].unique())
     variant = st.selectbox("Variant", df['Variant'].unique())
