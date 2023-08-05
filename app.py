@@ -36,7 +36,7 @@ def main():
     st.title("Car Selling Price Prediction")
 
     # Read the dataset from the .csv file
-    df = pd.read_csv("CAR DETAILS.csv")
+    df = pd.read_csv("new_car_details.csv")
 
     # Input fields for user to enter car details
     year = st.slider("Year", min_value=2000, max_value=2023, value=2010)
